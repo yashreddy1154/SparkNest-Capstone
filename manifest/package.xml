@@ -50,5 +50,26 @@
         <members>Enquiry__c</members>
         <name>SharingRules</name>
     </types>
+    <types>
+        <members>SparkNest_Sales</members>
+        <members>SparkNest_Support</members>
+        <name>CustomApplication</name>
+    </types>
+    <types>
+        <members>Enquiry__c-Enquiry Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>Contact.Contact_Exact_Email_Match</members>
+        <name>MatchingRule</name>
+    </types>
+    <types>
+        <members>Contact.Block_Duplicate_Contact_Email</members>
+        <name>DuplicateRule</name>
+    </types>
     <version>62.0</version>
 </Package>
