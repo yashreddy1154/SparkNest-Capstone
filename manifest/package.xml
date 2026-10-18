@@ -72,4 +72,24 @@
         <name>DuplicateRule</name>
     </types>
     <version>62.0</version>
+    <types>
+        <members>SparkNest_Reports</members>
+        <members>SparkNest_Reports/Enquiries_by_Type</members>
+        <members>SparkNest_Reports/My_Open_Enquiries</members>
+        <members>SparkNest_Reports/Cases_by_Priority</members>
+        <members>SparkNest_Reports/Weekly_New_Enquiries</members>
+        <name>Report</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Dashboard</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>GenAiFunction</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>GenAiPlugin</name>
+    </types>
 </Package>
