@@ -24,5 +24,31 @@
         <members>Enquiry_Product_Count_On_Delete</members>
         <name>Flow</name>
     </types>
+    <types>
+        <members>Sales_Manager</members>
+        <members>Sales_Rep_Hyderabad</members>
+        <members>Sales_Rep_Mumbai</members>
+        <members>Support_Manager</members>
+        <members>Support_Agent_Hyderabad</members>
+        <members>Support_Agent_Mumbai</members>
+        <name>Role</name>
+    </types>
+    <types>
+        <members>SparkNest Sales Rep</members>
+        <members>SparkNest Support Agent</members>
+        <name>Profile</name>
+    </types>
+    <types>
+        <members>Senior_Sales_Rep</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>View_Customer_Budget</members>
+        <name>CustomPermission</name>
+    </types>
+    <types>
+        <members>Enquiry__c</members>
+        <name>SharingRules</name>
+    </types>
     <version>62.0</version>
 </Package>
