@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>Enquiry__c</members>
+        <members>Enquiry_Product__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Product2.SKU__c</members>
+        <members>Case.Origin</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Enquiry__c</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>Care_Plan_Support</members>
+        <members>General_Support</members>
+        <name>Queue</name>
+    </types>
+    <types>
+        <members>Enquiry_Product_Count_On_Save</members>
+        <members>Enquiry_Product_Count_On_Delete</members>
+        <name>Flow</name>
+    </types>
+    <version>62.0</version>
+</Package>
