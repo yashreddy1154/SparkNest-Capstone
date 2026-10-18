@@ -1,0 +1,38 @@
+$kind: http-request
+name: "4. Composite API B2B Onboarding Rollback (allOrNone: true)"
+url: "{{baseUrl}}/services/data/v62.0/composite"
+method: POST
+headers:
+  Authorization: Bearer {{accessToken}}
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "allOrNone": true,
+      "compositeRequest": [
+        {
+          "method": "POST",
+          "url": "/services/data/v62.0/sobjects/Contact",
+          "referenceId": "refContact",
+          "body": {
+            "FirstName": "Rollback",
+            "LastName": "TestUser",
+            "Email": "rollback.test@sparknest.com"
+          }
+        },
+        {
+          "method": "POST",
+          "url": "/services/data/v62.0/sobjects/Enquiry__c",
+          "referenceId": "refEnquiry",
+          "body": {
+            "Contact__c": "@{refContact.id}",
+            "Subject__c": "B2B Onboarding With Invalid Budget",
+            "Enquiry_Type__c": "Product Enquiry",
+            "Status__c": "New",
+            "Customer_Budget__c": 500
+          }
+        }
+      ]
+    }
+order: 4000

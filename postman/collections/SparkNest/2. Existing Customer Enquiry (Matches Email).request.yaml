@@ -1,0 +1,20 @@
+$kind: http-request
+url: "{{baseUrl}}/services/apexrest/sparknest/enquiry"
+method: POST
+headers:
+  Authorization: Bearer {{accessToken}}
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "firstName": "Rohan",
+      "lastName": "Verma",
+      "email": "rohan.verma@example.com",
+      "subject": "2-Year Care Plan for Smart Watch X1",
+      "enquiryType": "Care Plan Enquiry",
+      "planDuration": "24 months",
+      "source": "Web",
+      "budget": 4500
+    }
+order: 2000

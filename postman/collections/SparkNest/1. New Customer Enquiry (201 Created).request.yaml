@@ -1,0 +1,20 @@
+$kind: http-request
+url: "{{baseUrl}}/services/apexrest/sparknest/enquiry"
+method: POST
+headers:
+  Authorization: Bearer {{accessToken}}
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "firstName": "Vikram",
+      "lastName": "Desai",
+      "email": "vikram.desai@example.com",
+      "phone": "9849011223",
+      "subject": "SparkNest Smart Lock Pro Bulk Order",
+      "enquiryType": "Product Enquiry",
+      "source": "Web",
+      "budget": 15000
+    }
+order: 1000

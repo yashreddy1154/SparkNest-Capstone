@@ -1,0 +1,17 @@
+$kind: http-request
+url: "{{baseUrl}}/services/apexrest/sparknest/enquiry"
+method: POST
+headers:
+  Authorization: Bearer {{accessToken}}
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+      "firstName": "Anonymous",
+      "lastName": "Visitor",
+      "subject": "Enquiry Without Email",
+      "enquiryType": "Product Enquiry",
+      "budget": 5000
+    }
+order: 3000

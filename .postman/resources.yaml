@@ -1,0 +1,13 @@
+# Use this workspace to collaborate
+workspace:
+  id: c58da158-10e4-4761-80ce-e9a1ea07f8b5
+
+cloudResources:
+  collections:
+    ../postman/collections/SparkNest: 713dbc66-581e-4841-9d97-e85c90369102
+
+# All resources in the `postman/` folder are automatically registered in Local View.
+# Point to additional files outside the `postman/` folder to register them individually. Example:
+#localResources:
+#  collections:
+#    - ../tests/E2E Test Collection/

@@ -1,0 +1,12 @@
+$kind: collection
+description: SparkNest Capstone Project - Task 7 Custom REST & Composite API
+variables:
+  - key: baseUrl
+    value: https://orgfarm-08d5ddf2a3-dev-ed.develop.my.salesforce.com
+    disabled: false
+  - key: accessToken
+    value: "{{salesforce_access_token_0g1o}}"
+    disabled: false
+  - key: salesforce_access_token_0g1o
+    secret: true
+    disabled: false

@@ -1,0 +1,89 @@
+{
+  "info": {
+    "name": "SparkNest",
+    "description": "SparkNest Capstone Project - Task 7 Custom REST & Composite API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://orgfarm-08d5ddf2a3-dev-ed.develop.my.salesforce.com" },
+    { "key": "accessToken", "value": "YOUR_SF_ACCESS_TOKEN_HERE" }
+  ],
+  "item": [
+    {
+      "name": "1. New Customer Enquiry (201 Created)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{accessToken}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/services/apexrest/sparknest/enquiry",
+          "host": ["{{baseUrl}}"],
+          "path": ["services", "apexrest", "sparknest", "enquiry"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Vikram\",\n  \"lastName\": \"Desai\",\n  \"email\": \"vikram.desai@example.com\",\n  \"phone\": \"9849011223\",\n  \"subject\": \"SparkNest Smart Lock Pro Bulk Order\",\n  \"enquiryType\": \"Product Enquiry\",\n  \"source\": \"Web\",\n  \"budget\": 15000\n}"
+        }
+      }
+    },
+    {
+      "name": "2. Existing Customer Enquiry (Matches Email)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{accessToken}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/services/apexrest/sparknest/enquiry",
+          "host": ["{{baseUrl}}"],
+          "path": ["services", "apexrest", "sparknest", "enquiry"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Rohan\",\n  \"lastName\": \"Verma\",\n  \"email\": \"rohan.verma@example.com\",\n  \"subject\": \"2-Year Care Plan for Smart Watch X1\",\n  \"enquiryType\": \"Care Plan Enquiry\",\n  \"planDuration\": \"24 months\",\n  \"source\": \"Web\",\n  \"budget\": 4500\n}"
+        }
+      }
+    },
+    {
+      "name": "3. Missing Email Validation (400 Bad Request)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{accessToken}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/services/apexrest/sparknest/enquiry",
+          "host": ["{{baseUrl}}"],
+          "path": ["services", "apexrest", "sparknest", "enquiry"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Anonymous\",\n  \"lastName\": \"Visitor\",\n  \"subject\": \"Enquiry Without Email\",\n  \"enquiryType\": \"Product Enquiry\",\n  \"budget\": 5000\n}"
+        }
+      }
+    },
+    {
+      "name": "4. Composite API B2B Onboarding Rollback (allOrNone: true)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{accessToken}}" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/services/data/v62.0/composite",
+          "host": ["{{baseUrl}}"],
+          "path": ["services", "data", "v62.0", "composite"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"allOrNone\": true,\n  \"compositeRequest\": [\n    {\n      \"method\": \"POST\",\n      \"url\": \"/services/data/v62.0/sobjects/Contact\",\n      \"referenceId\": \"refContact\",\n      \"body\": {\n        \"FirstName\": \"Rollback\",\n        \"LastName\": \"TestUser\",\n        \"Email\": \"rollback.test@sparknest.com\"\n      }\n    },\n    {\n      \"method\": \"POST\",\n      \"url\": \"/services/data/v62.0/sobjects/Enquiry__c\",\n      \"referenceId\": \"refEnquiry\",\n      \"body\": {\n        \"Contact__c\": \"@{refContact.id}\",\n        \"Subject__c\": \"B2B Onboarding With Invalid Budget\",\n        \"Enquiry_Type__c\": \"Product Enquiry\",\n        \"Status__c\": \"New\",\n        \"Customer_Budget__c\": 500\n      }\n    }\n  ]\n}"
+        }
+      }
+    }
+  ]
+}
